@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="external">
+      <UniqueIdentifier>{61741241-FA77-D74A-8B39-7FB480DB2836}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\rdrs">
+      <UniqueIdentifier>{FC8F59FF-48DC-5040-A7B7-40BB0B6A627F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\rdrs\source">
+      <UniqueIdentifier>{A6C4D6E9-68FE-3646-94A3-71D9BFBFAA76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\rdrs\source\rdrs_tests">
+      <UniqueIdentifier>{FC8B15BB-3FC8-8844-8135-E61B348613A3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\external\rdrs\source\rdrs_tests\rdrs_test.c">
+      <Filter>external\rdrs\source\rdrs_tests</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

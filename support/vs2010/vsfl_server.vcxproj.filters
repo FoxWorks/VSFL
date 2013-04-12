@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\source\vsfl.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\source\vsfl_evds.c" />
+    <ClCompile Include="..\..\source\vsfl_main.c" />
+    <ClCompile Include="..\..\source\vsfl_mongo.c" />
+  </ItemGroup>
+</Project>

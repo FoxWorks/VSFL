@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="external">
+      <UniqueIdentifier>{70AAEDCE-81DD-3C4F-B488-05345FE9E5E6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\mongo-c-driver">
+      <UniqueIdentifier>{DEC179AE-CD9C-D84D-8BDD-D239D888D742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\mongo-c-driver\src">
+      <UniqueIdentifier>{9C0BAE11-E732-CF44-83FE-E724EA84733F}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\external\mongo-c-driver\src\bcon.h">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\mongo-c-driver\src\bson.h">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\mongo-c-driver\src\encoding.h">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\mongo-c-driver\src\env.h">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\mongo-c-driver\src\gridfs.h">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\mongo-c-driver\src\md5.h">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\external\mongo-c-driver\src\mongo.h">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\external\mongo-c-driver\src\bcon.c">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\external\mongo-c-driver\src\bson.c">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\external\mongo-c-driver\src\encoding.c">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\external\mongo-c-driver\src\env.c">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\external\mongo-c-driver\src\gridfs.c">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\external\mongo-c-driver\src\md5.c">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\external\mongo-c-driver\src\mongo.c">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\external\mongo-c-driver\src\numbers.c">
+      <Filter>external\mongo-c-driver\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
