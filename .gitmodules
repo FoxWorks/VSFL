@@ -7,3 +7,9 @@
 [submodule "external/rdrs"]
 	path = external/rdrs
 	url = https://github.com/FoxWorks/RDRS.git
+[submodule "external/mongo-c-driver"]
+	path = external/mongo-c-driver
+	url = https://github.com/mongodb/mongo-c-driver.git
+[submodule "external/simc"]
+	path = external/simc
+	url = https://github.com/FoxWorks/SIMC.git
