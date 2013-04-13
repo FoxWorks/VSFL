@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9.00"
 	Name="rdrs"
-	ProjectGUID="{695A541A-59A0-EE4A-A05C-DB897EF81F83}"
+	ProjectGUID="{0C074FB8-B905-194D-A66E-5D18605489E9}"
 	RootNamespace="rdrs"
 	Keyword="Win32Proj"
 	>
@@ -1343,56 +1343,46 @@
 	</References>
 	<Files>
 		<Filter
-			Name="external"
+			Name="include"
+			Filter=""
+			>
+			<File
+				RelativePath="..\..\external\rdrs\include\rdrs.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\external\rdrs\include\rdrs_internal.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\external\rdrs\include\rdrs_lookup.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="source"
 			Filter=""
 			>
 			<Filter
-				Name="rdrs"
+				Name="rdrs_core"
 				Filter=""
 				>
-				<Filter
-					Name="include"
-					Filter=""
+				<File
+					RelativePath="..\..\external\rdrs\source\rdrs_core\rdrs_antenna.c"
 					>
-					<File
-						RelativePath="..\..\external\rdrs\include\rdrs.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\rdrs\include\rdrs_internal.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\rdrs\include\rdrs_lookup.h"
-						>
-					</File>
-				</Filter>
-				<Filter
-					Name="source"
-					Filter=""
+				</File>
+				<File
+					RelativePath="..\..\external\rdrs\source\rdrs_core\rdrs_lookup.c"
 					>
-					<Filter
-						Name="rdrs_core"
-						Filter=""
-						>
-						<File
-							RelativePath="..\..\external\rdrs\source\rdrs_core\rdrs_antenna.c"
-							>
-						</File>
-						<File
-							RelativePath="..\..\external\rdrs\source\rdrs_core\rdrs_lookup.c"
-							>
-						</File>
-						<File
-							RelativePath="..\..\external\rdrs\source\rdrs_core\rdrs_physics.c"
-							>
-						</File>
-						<File
-							RelativePath="..\..\external\rdrs\source\rdrs_core\rdrs_system.c"
-							>
-						</File>
-					</Filter>
-				</Filter>
+				</File>
+				<File
+					RelativePath="..\..\external\rdrs\source\rdrs_core\rdrs_physics.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\rdrs\source\rdrs_core\rdrs_system.c"
+					>
+				</File>
 			</Filter>
 		</Filter>
 	</Files>

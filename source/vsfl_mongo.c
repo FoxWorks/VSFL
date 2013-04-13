@@ -66,6 +66,7 @@ int VSFL_MongoDB_Initialize() {
 int VSFL_MongoDB_CheckConnection() {
 	if (mongo_check_connection(mongo_connection) != MONGO_OK) {
 		VSFL_Log("mongodb","No connection to database");
+		SIMC_Thread_Sleep(5.0);
 		return VSFL_MongoDB_Initialize();
 	} else {
 		return 1;

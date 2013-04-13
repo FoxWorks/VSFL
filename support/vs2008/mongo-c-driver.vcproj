@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9.00"
 	Name="mongo-c-driver"
-	ProjectGUID="{A176DF61-1A31-8046-AEBB-0AA7C250ED94}"
+	ProjectGUID="{47AD2AB0-C848-4346-8A79-2BC76324294B}"
 	RootNamespace="mongo-c-driver"
 	Keyword="Win32Proj"
 	>
@@ -1271,78 +1271,73 @@
 	</References>
 	<Files>
 		<Filter
-			Name="external"
+			Name="mongo-c-driver"
 			Filter=""
 			>
 			<Filter
-				Name="mongo-c-driver"
+				Name="src"
 				Filter=""
 				>
-				<Filter
-					Name="src"
-					Filter=""
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\bcon.c"
 					>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\bcon.c"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\bcon.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\bson.c"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\bson.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\encoding.c"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\encoding.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\env.c"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\env.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\gridfs.c"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\gridfs.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\md5.c"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\md5.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\mongo.c"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\mongo.h"
-						>
-					</File>
-					<File
-						RelativePath="..\..\external\mongo-c-driver\src\numbers.c"
-						>
-					</File>
-				</Filter>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\bcon.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\bson.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\bson.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\encoding.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\encoding.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\env.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\env.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\gridfs.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\gridfs.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\md5.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\md5.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\mongo.c"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\mongo.h"
+					>
+				</File>
+				<File
+					RelativePath="..\..\external\mongo-c-driver\src\numbers.c"
+					>
+				</File>
 			</Filter>
 		</Filter>
 	</Files>

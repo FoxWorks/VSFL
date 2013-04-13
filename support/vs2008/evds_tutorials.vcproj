@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9.00"
 	Name="evds_tutorials"
-	ProjectGUID="{8B07584A-9C2D-C044-B45F-5FB65DF636BD}"
+	ProjectGUID="{40641FCD-CECA-4F4A-B623-530A38CDEF95}"
 	RootNamespace="evds_tutorials"
 	Keyword="Win32Proj"
 	>
@@ -1399,27 +1399,17 @@
 	</References>
 	<Files>
 		<Filter
-			Name="external"
+			Name="source"
 			Filter=""
 			>
 			<Filter
-				Name="evds"
+				Name="evds_tutorials"
 				Filter=""
 				>
-				<Filter
-					Name="source"
-					Filter=""
+				<File
+					RelativePath="..\..\external\evds\source\evds_tutorials\evds_tutorials.c"
 					>
-					<Filter
-						Name="evds_tutorials"
-						Filter=""
-						>
-						<File
-							RelativePath="..\..\external\evds\source\evds_tutorials\evds_tutorials.c"
-							>
-						</File>
-					</Filter>
-				</Filter>
+				</File>
 			</Filter>
 		</Filter>
 	</Files>

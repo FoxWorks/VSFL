@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9.00"
 	Name="rdrs_test"
-	ProjectGUID="{8CBE9EC6-6EFB-7946-93EC-D366F7DEB6AE}"
+	ProjectGUID="{FDB4D7CF-0F81-6E41-AF80-32033E381550}"
 	RootNamespace="rdrs_test"
 	Keyword="Win32Proj"
 	>
@@ -1399,27 +1399,17 @@
 	</References>
 	<Files>
 		<Filter
-			Name="external"
+			Name="source"
 			Filter=""
 			>
 			<Filter
-				Name="rdrs"
+				Name="rdrs_tests"
 				Filter=""
 				>
-				<Filter
-					Name="source"
-					Filter=""
+				<File
+					RelativePath="..\..\external\rdrs\source\rdrs_tests\rdrs_test.c"
 					>
-					<Filter
-						Name="rdrs_tests"
-						Filter=""
-						>
-						<File
-							RelativePath="..\..\external\rdrs\source\rdrs_tests\rdrs_test.c"
-							>
-						</File>
-					</Filter>
-				</Filter>
+				</File>
 			</Filter>
 		</Filter>
 	</Files>

@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9.00"
 	Name="vsfl_server"
-	ProjectGUID="{A64F2096-2CF3-0E4C-880B-0605ADCD0EB2}"
+	ProjectGUID="{C84AD4D2-2D63-1842-871E-30B7C71BEA58}"
 	RootNamespace="vsfl_server"
 	Keyword="Win32Proj"
 	>
