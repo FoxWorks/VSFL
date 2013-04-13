@@ -278,7 +278,9 @@ void VSFL_MongoDB_RestoreState() {
 			bson_find(&iterator[1],mongo_cursor_bson(cursor),"xml")) {
 
 			//Load data
-			EVDS_Object_LoadFromString(vsfl.solar_system,bson_iterator_string(&iterator[1]),0);
+			EVDS_OBJECT* root_inertial_space;
+			EVDS_System_GetRootInertialSpace(vsfl.evds_system,&root_inertial_space);
+			EVDS_Object_LoadFromString(root_inertial_space,bson_iterator_string(&iterator[1]),0);
 
 			//Update time
 			vsfl.mjd = bson_iterator_double(&iterator[0]);
@@ -291,12 +293,6 @@ void VSFL_MongoDB_RestoreState() {
 				strftime(buffer,1023,"%x %X",timeinfo);
 				VSFL_Log("load_state","Restoring state from %s",buffer);
 			}
-
-			//Fetch system objects
-			EVDS_System_GetObjectByName(vsfl.evds_system,"Earth_Inertial_Space",0,&vsfl.inertial_earth);
-			EVDS_System_GetObjectByName(vsfl.evds_system,"Earth",0,&vsfl.planet_earth);
-			EVDS_System_GetObjectByName(vsfl.evds_system,"Moon",0,&vsfl.planet_earth_moon);
-			EVDS_System_GetObjectByName(vsfl.evds_system,"Hangar",0,&vsfl.hangar_building);
 		}
 	} else {
 		VSFL_Log("load_state","Creating empty world state");
@@ -313,6 +309,7 @@ void VSFL_MongoDB_RestoreState() {
 /// @brief Save simulation state to the database
 ////////////////////////////////////////////////////////////////////////////////
 void VSFL_MongoDB_StoreState() {
+	EVDS_OBJECT* root_inertial_space;
 	EVDS_OBJECT_SAVEEX info = { 0 };
 	bson op[1];
 	if (!VSFL_MongoDB_CheckConnection()) return;
@@ -326,7 +323,8 @@ void VSFL_MongoDB_StoreState() {
 	SIMC_SRW_EnterWrite(vsfl.save_lock);
 
 	//Save solar system state
-	if (EVDS_Object_SaveEx(vsfl.solar_system,0,&info) != EVDS_OK) {
+	EVDS_System_GetRootInertialSpace(vsfl.evds_system,&root_inertial_space);
+	if (EVDS_Object_SaveEx(root_inertial_space,0,&info) != EVDS_OK) {
 		VSFL_Log("save_state","Could not store server state");
 		return;
 	}

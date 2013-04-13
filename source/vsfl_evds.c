@@ -42,38 +42,53 @@ VSFL_EVDS vsfl = { 0 };
 /// @brief Setup empty EVDS state
 ////////////////////////////////////////////////////////////////////////////////
 void VSFL_EVDS_CreateEmptyState() {
+	EVDS_OBJECT* inertial_earth;
+	EVDS_OBJECT* solar_system;
+	EVDS_OBJECT* planet_earth;
+	EVDS_OBJECT* planet_earth_moon;
+	EVDS_OBJECT* hangar_building;
+	EVDS_VECTOR vector;
+
+	//Create solar system inertial space
+	EVDS_Object_Create(vsfl.evds_system,0,&solar_system);
+	EVDS_Object_SetName(solar_system,"Solar_Inertial_Space");
+	EVDS_Object_SetType(solar_system,"propagator_rk4");
+	EVDS_Object_Initialize(solar_system,1);
+
 	//Create planet Earth inertial space
-	EVDS_Object_Create(vsfl.evds_system,vsfl.solar_system,&vsfl.inertial_earth);
-	EVDS_Object_SetName(vsfl.inertial_earth,"Earth_Inertial_Space");
-	EVDS_Object_SetType(vsfl.inertial_earth,"propagator_rk4");
-	EVDS_Object_Initialize(vsfl.inertial_earth,1);
+	EVDS_Object_Create(vsfl.evds_system,solar_system,&inertial_earth);
+	EVDS_Object_SetName(inertial_earth,"Earth_Inertial_Space");
+	EVDS_Object_SetType(inertial_earth,"propagator_rk4");
+	EVDS_Object_Initialize(inertial_earth,1);
 
 	//Create planet Earth
-	EVDS_Object_Create(vsfl.evds_system,vsfl.inertial_earth,&vsfl.planet_earth);
-	EVDS_Object_SetType(vsfl.planet_earth,"planet");
-	EVDS_Object_SetName(vsfl.planet_earth,"Earth");
-	EVDS_Object_SetAngularVelocity(vsfl.planet_earth,vsfl.inertial_earth,0,0,2*EVDS_PI/86164.0);
-	EVDS_Object_AddFloatVariable(vsfl.planet_earth,"mu",3.9860044e14,0);	//m3 sec-2
-	EVDS_Object_AddFloatVariable(vsfl.planet_earth,"radius",6378.145e3,0);	//m
-	EVDS_Object_AddFloatVariable(vsfl.planet_earth,"period",86164.10,0);	//sec
-	EVDS_Object_Initialize(vsfl.planet_earth,1);
+	EVDS_Object_Create(vsfl.evds_system,inertial_earth,&planet_earth);
+	EVDS_Object_SetType(planet_earth,"planet");
+	EVDS_Object_SetName(planet_earth,"Earth");
+	EVDS_Object_SetAngularVelocity(planet_earth,inertial_earth,0,0,2*EVDS_PI/86164.0);
+	EVDS_Object_AddFloatVariable(planet_earth,"mu",3.9860044e14,0);		//m3 sec-2
+	EVDS_Object_AddFloatVariable(planet_earth,"radius",6378.145e3,0);	//m
+	EVDS_Object_AddFloatVariable(planet_earth,"period",86164.10,0);		//sec
+	EVDS_Object_AddFloatVariable(planet_earth,"is_static",1,0);			//Planet does not move
+	EVDS_Object_Initialize(planet_earth,1);
 
 	//Create moon
-	EVDS_Object_Create(vsfl.evds_system,vsfl.inertial_earth,&vsfl.planet_earth_moon);
-	EVDS_Object_SetType(vsfl.planet_earth_moon,"planet");
-	EVDS_Object_SetName(vsfl.planet_earth_moon,"Moon");
-	EVDS_Object_AddFloatVariable(vsfl.planet_earth_moon,"mu",0.0490277e14,0);	//m3 sec-2
-	EVDS_Object_AddFloatVariable(vsfl.planet_earth_moon,"radius",1737e3,0);	//m
-	EVDS_Object_SetPosition(vsfl.planet_earth_moon,vsfl.inertial_earth,0.0,362570e3,0.0);
-	EVDS_Object_SetVelocity(vsfl.planet_earth_moon,vsfl.inertial_earth,1000.0,0.0,0.0);
-	EVDS_Object_Initialize(vsfl.planet_earth_moon,1);
+	EVDS_Object_Create(vsfl.evds_system,inertial_earth,&planet_earth_moon);
+	EVDS_Object_SetType(planet_earth_moon,"planet");
+	EVDS_Object_SetName(planet_earth_moon,"Moon");
+	EVDS_Object_AddFloatVariable(planet_earth_moon,"mu",0.0490277e14,0);	//m3 sec-2
+	EVDS_Object_AddFloatVariable(planet_earth_moon,"radius",1737e3,0);		//m
+	EVDS_Object_SetPosition(planet_earth_moon,inertial_earth,0.0,362570e3,0.0);
+	EVDS_Object_SetVelocity(planet_earth_moon,inertial_earth,1000.0,0.0,0.0);
+	EVDS_Object_Initialize(planet_earth_moon,1);
 
 	//Create hangar for storing unlaunched objects
-	EVDS_Object_Create(vsfl.evds_system,vsfl.planet_earth,&vsfl.hangar_building);
-	EVDS_Object_SetName(vsfl.hangar_building,"Hangar");
-	//EVDS_Object_SetType(vsfl.hangar_building,"");
-	EVDS_Object_SetPosition(vsfl.hangar_building,vsfl.planet_earth,6378.145e3,0,0);
-	EVDS_Object_Initialize(vsfl.hangar_building,1);
+	EVDS_Object_Create(vsfl.evds_system,planet_earth,&hangar_building);
+	EVDS_Object_SetName(hangar_building,"Hangar (Baikonur)");
+	EVDS_Object_SetType(hangar_building,"building_hangar");
+	EVDS_Vector_FromGeographicCoordinates(planet_earth,&vector,45.951,63.497,0);
+	EVDS_Object_SetPosition(hangar_building,vector.coordinate_system,vector.x,vector.y,vector.z);
+	EVDS_Object_Initialize(hangar_building,1);
 
 	//Start from current time
 	vsfl.mjd = SIMC_Thread_GetMJDTime();
@@ -83,12 +98,25 @@ void VSFL_EVDS_CreateEmptyState() {
 ////////////////////////////////////////////////////////////////////////////////
 /// @brief Upload a new file and add vessels from it to database
 ////////////////////////////////////////////////////////////////////////////////
+int VSFL_EVDS_Callback_LoadObject(EVDS_OBJECT_LOADEX* info, EVDS_OBJECT* object) {
+	EVDS_Object_Initialize(object,0);
+	return EVDS_OK;
+}
+
 void VSFL_EVDS_LoadFile(char* filename) {
 	EVDS_OBJECT_LOADEX info = {	0 };
+	EVDS_OBJECT* hangar_building;
+
+	//Get hangar
+	VSFL_Log("mongodb_vessel","Uploading vessel '%s'",filename);
+	if (EVDS_System_GetObjectByName(vsfl.evds_system,"Hangar (Baikonur)",0,&hangar_building) != EVDS_OK) {
+		VSFL_Log("mongodb_vessel","No hangar for vessel '%s' found!",filename);
+		return;
+	}
 
 	//Load vessels into the hangar
-	VSFL_Log("mongodb_vessel","Uploading vessel '%s'",filename);
-	if (EVDS_Object_LoadEx(vsfl.hangar_building,filename,&info) != EVDS_OK) {
+	info.OnLoadObject = &VSFL_EVDS_Callback_LoadObject;
+	if (EVDS_Object_LoadEx(hangar_building,filename,&info) != EVDS_OK) {
 		VSFL_Log("mongodb_vessel","Could not read vessel file '%s'",filename);
 		return;
 	}
@@ -127,12 +155,19 @@ void VSFL_EVDS_UpdateVesselClocks(double time_step) {
 			EVDS_STATE_VECTOR state;
 			EVDS_VECTOR vector;
 			EVDS_OBJECT* vessel = (EVDS_OBJECT*)SIMC_List_GetData(list,entry);
+			EVDS_OBJECT* planet;
+
+			//Try to get planet
+			if (EVDS_Planet_GetNearest(vessel,&planet) != EVDS_OK) {
+				entry = SIMC_List_GetNext(list,entry);
+				continue;
+			}
 
 			//Get state vector to check altitude/position
 			EVDS_Object_GetStateVector(vessel,&state);
-			EVDS_Vector_Convert(&vector,&state.position,vsfl.planet_earth);
+			EVDS_Vector_Convert(&vector,&state.position,planet);
 			EVDS_Vector_Dot(&altitude,&vector,&vector); altitude = sqrt(altitude);
-			EVDS_Vector_Convert(&vector,&state.velocity,vsfl.planet_earth);
+			EVDS_Vector_Convert(&vector,&state.velocity,planet);
 			EVDS_Vector_Dot(&velocity,&vector,&vector); velocity = sqrt(velocity);
 
 			//Add total flight time
@@ -166,6 +201,9 @@ void VSFL_EVDS_UpdateVesselClocks(double time_step) {
 ////////////////////////////////////////////////////////////////////////////////
 void VSFL_EVDS_SimulationThread() {
 	double late_notify_time = -1e9;
+
+	EVDS_OBJECT* root_inertial_space;
+	EVDS_System_GetRootInertialSpace(vsfl.evds_system,&root_inertial_space);
 	while (1) {
 		double mjd,mjd_offset;
 		double time_step,time_step_mjd;
@@ -190,7 +228,7 @@ void VSFL_EVDS_SimulationThread() {
 			SIMC_SRW_EnterRead(vsfl.save_lock);
 
 			//Propagate state of objects in the inertial coordinate system
-			EVDS_Object_Solve(vsfl.solar_system,time_step);
+			EVDS_Object_Solve(root_inertial_space,time_step);
 			vsfl.mjd += time_step_mjd;
 
 			//Update vessel internal clocks
@@ -291,12 +329,6 @@ void VSFL_EVDS_Initialize() {
 
 	//Create service lock
 	vsfl.save_lock = SIMC_SRW_Create();
-
-	//Create solar system inertial space
-	EVDS_Object_Create(vsfl.evds_system,0,&vsfl.solar_system);
-	EVDS_Object_SetName(vsfl.solar_system,"Solar_Inertial_Space");
-	EVDS_Object_SetType(vsfl.solar_system,"propagator_rk4");
-	EVDS_Object_Initialize(vsfl.solar_system,1);
 
 	//Restore server state
 	VSFL_MongoDB_RestoreState();

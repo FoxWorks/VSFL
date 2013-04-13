@@ -58,19 +58,6 @@ typedef struct VSFL_EVDS_TAG {
 	// EVDS system object
 	EVDS_SYSTEM* evds_system;
 
-	// Solar-centric coordinate system, root coordinate system
-	EVDS_OBJECT* solar_system;
-
-	// Earth-centric inertial coordinate system
-	EVDS_OBJECT* inertial_earth;
-	// Earth object and non-inertial coordinate system
-	EVDS_OBJECT* planet_earth;
-	// Moon object and non-inertial coordinate system
-	EVDS_OBJECT* planet_earth_moon;
-
-	// Hangar building that stores the vessels
-	EVDS_OBJECT* hangar_building;
-
 	// SRW lock that prevents inconsistent state during save
 	SIMC_SRW_ID* save_lock;
 
