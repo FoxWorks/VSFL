@@ -67,7 +67,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{7558CE1C-BA48-1D4D-A4A2-12E5084B4A79}</ProjectGuid>
+    <ProjectGuid>{1418E57D-CB20-5542-8D85-B90995D5B8BE}</ProjectGuid>
     <RootNamespace>rdrs</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
@@ -744,7 +744,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="simc.vcxproj">
-      <Project>{415A85A0-863A-B347-A3C9-2B260B6C0D4C}</Project>
+      <Project>{00058543-E5EA-1540-B535-BCE859AA319E}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

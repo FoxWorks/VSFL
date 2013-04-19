@@ -393,6 +393,7 @@ OBJECTS := \
 	$(OBJDIR)/evds_database.o \
 	$(OBJDIR)/evds_engine.o \
 	$(OBJDIR)/evds_fueltank.o \
+	$(OBJDIR)/evds_planet.o \
 	$(OBJDIR)/evds_prop_heun.o \
 	$(OBJDIR)/evds_prop_rk4.o \
 
@@ -496,6 +497,9 @@ $(OBJDIR)/evds_engine.o: ../../external/evds/source/evds_common/evds_engine.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(CFLAGS) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 $(OBJDIR)/evds_fueltank.o: ../../external/evds/source/evds_common/evds_fueltank.c
+	@echo $(notdir $<)
+	$(SILENT) $(CC) $(CFLAGS) -o "$@" -MF $(@:%.o=%.d) -c "$<"
+$(OBJDIR)/evds_planet.o: ../../external/evds/source/evds_common/evds_planet.c
 	@echo $(notdir $<)
 	$(SILENT) $(CC) $(CFLAGS) -o "$@" -MF $(@:%.o=%.d) -c "$<"
 $(OBJDIR)/evds_prop_heun.o: ../../external/evds/source/evds_common/evds_prop_heun.c

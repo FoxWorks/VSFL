@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="external">
-      <UniqueIdentifier>{72BC220E-4E79-AF44-B4AF-EACEA7FF287B}</UniqueIdentifier>
+    <Filter Include="source">
+      <UniqueIdentifier>{32BEBCCA-FD1A-8A43-8E40-46F8B7B482A5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="external\evds">
-      <UniqueIdentifier>{6DEB45D2-DEA7-3E46-881C-BCDEE58DA217}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="external\evds\source">
-      <UniqueIdentifier>{E61560AE-8E3E-4F4F-A17C-7AE224E38107}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="external\evds\source\evds_tutorials">
-      <UniqueIdentifier>{E01B0304-AC32-D042-BB69-AB08D1EBF6B4}</UniqueIdentifier>
+    <Filter Include="source\evds_tutorials">
+      <UniqueIdentifier>{B2E02D18-3492-204B-88AC-405308867E54}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\external\evds\source\evds_tutorials\evds_tutorials.c">
-      <Filter>external\evds\source\evds_tutorials</Filter>
+      <Filter>source\evds_tutorials</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

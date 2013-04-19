@@ -1,89 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="external">
-      <UniqueIdentifier>{2D3825E9-A090-0841-A797-1C96DEE43175}</UniqueIdentifier>
+    <Filter Include="source">
+      <UniqueIdentifier>{B7B7E5C5-7A44-FA41-9D71-4451B5BFF02E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="external\evds">
-      <UniqueIdentifier>{3280819D-0B61-3D42-9E41-ABE9E6038EE9}</UniqueIdentifier>
+    <Filter Include="source\evds_core">
+      <UniqueIdentifier>{7ECE4287-4828-7042-9F8D-A52CFE590060}</UniqueIdentifier>
     </Filter>
-    <Filter Include="external\evds\source">
-      <UniqueIdentifier>{3AB4BE38-FF01-3443-BDEE-3728A83FD0F8}</UniqueIdentifier>
+    <Filter Include="source\evds_common">
+      <UniqueIdentifier>{DF2538D7-672D-0141-BE67-0FB4B36ABAE6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="external\evds\source\evds_core">
-      <UniqueIdentifier>{DF31D9A4-CB58-AD4F-BB20-127585B52A6F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="external\evds\source\evds_common">
-      <UniqueIdentifier>{8FCBBEEE-4787-AC41-BAA4-6785AF8EFA02}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="external\evds\include">
-      <UniqueIdentifier>{E638CFC5-A8FD-CD46-96FE-F40EA801AEF4}</UniqueIdentifier>
+    <Filter Include="include">
+      <UniqueIdentifier>{9E887506-7664-6C48-B0E3-6F33CA31FC89}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\external\evds\source\evds_common\evds_database.xml">
-      <Filter>external\evds\source\evds_common</Filter>
+      <Filter>source\evds_common</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\external\evds\include\evds.h">
-      <Filter>external\evds\include</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\external\evds\include\evds_common.h">
-      <Filter>external\evds\include</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\external\evds\include\evds_database.h">
-      <Filter>external\evds\include</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\external\evds\include\evds_internal.h">
-      <Filter>external\evds\include</Filter>
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\external\evds\source\evds_core\evds_env.c">
-      <Filter>external\evds\source\evds_core</Filter>
+      <Filter>source\evds_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_core\evds_load.c">
-      <Filter>external\evds\source\evds_core</Filter>
+      <Filter>source\evds_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_core\evds_math.c">
-      <Filter>external\evds\source\evds_core</Filter>
+      <Filter>source\evds_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_core\evds_mesh.c">
-      <Filter>external\evds\source\evds_core</Filter>
+      <Filter>source\evds_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_core\evds_modifier.c">
-      <Filter>external\evds\source\evds_core</Filter>
+      <Filter>source\evds_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_core\evds_object.c">
-      <Filter>external\evds\source\evds_core</Filter>
+      <Filter>source\evds_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_core\evds_save.c">
-      <Filter>external\evds\source\evds_core</Filter>
+      <Filter>source\evds_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_core\evds_system.c">
-      <Filter>external\evds\source\evds_core</Filter>
+      <Filter>source\evds_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_core\evds_variable.c">
-      <Filter>external\evds\source\evds_core</Filter>
+      <Filter>source\evds_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_common\evds_body.c">
-      <Filter>external\evds\source\evds_common</Filter>
+      <Filter>source\evds_common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_common\evds_database.c">
-      <Filter>external\evds\source\evds_common</Filter>
+      <Filter>source\evds_common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_common\evds_engine.c">
-      <Filter>external\evds\source\evds_common</Filter>
+      <Filter>source\evds_common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_common\evds_fueltank.c">
-      <Filter>external\evds\source\evds_common</Filter>
+      <Filter>source\evds_common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\external\evds\source\evds_common\evds_planet.c">
+      <Filter>source\evds_common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_common\evds_prop_heun.c">
-      <Filter>external\evds\source\evds_common</Filter>
+      <Filter>source\evds_common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\evds\source\evds_common\evds_prop_rk4.c">
-      <Filter>external\evds\source\evds_common</Filter>
+      <Filter>source\evds_common</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

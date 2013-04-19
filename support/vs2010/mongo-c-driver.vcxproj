@@ -67,7 +67,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{828158DE-4121-3B4A-B2BF-BCB69D2CC709}</ProjectGuid>
+    <ProjectGuid>{47AD2AB0-C848-4346-8A79-2BC76324294B}</ProjectGuid>
     <RootNamespace>mongo-c-driver</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>

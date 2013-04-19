@@ -3,7 +3,7 @@
 	ProjectType="Visual C++"
 	Version="9.00"
 	Name="evds_tutorials"
-	ProjectGUID="{40641FCD-CECA-4F4A-B623-530A38CDEF95}"
+	ProjectGUID="{740FC406-98AF-B54D-B226-CAF40650FF1E}"
 	RootNamespace="evds_tutorials"
 	Keyword="Win32Proj"
 	>

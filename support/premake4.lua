@@ -12,6 +12,7 @@ solution "vsfl"
 -- Virtual Space FLight Network Server
 --------------------------------------------------------------------------------
    project("mongo-c-driver")
+      uuid "47AD2AB0-C848-4346-8A79-2BC76324294B"
       kind "StaticLib"
       language "C"
       includedirs {
@@ -28,6 +29,7 @@ solution "vsfl"
       
 
    project "vsfl_server"
+      uuid "C84AD4D2-2D63-1842-871E-30B7C71BEA58"
       kind "ConsoleApp"
       language "C"
       includedirs {

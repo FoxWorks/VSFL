@@ -1,22 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="external">
-      <UniqueIdentifier>{61741241-FA77-D74A-8B39-7FB480DB2836}</UniqueIdentifier>
+    <Filter Include="source">
+      <UniqueIdentifier>{0E3E0663-AC66-2E41-8A31-80FBC1D59BD7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="external\rdrs">
-      <UniqueIdentifier>{FC8F59FF-48DC-5040-A7B7-40BB0B6A627F}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="external\rdrs\source">
-      <UniqueIdentifier>{A6C4D6E9-68FE-3646-94A3-71D9BFBFAA76}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="external\rdrs\source\rdrs_tests">
-      <UniqueIdentifier>{FC8B15BB-3FC8-8844-8135-E61B348613A3}</UniqueIdentifier>
+    <Filter Include="source\rdrs_tests">
+      <UniqueIdentifier>{3C2DDDC9-B8A0-FF4E-9D26-24F3C566D93D}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\external\rdrs\source\rdrs_tests\rdrs_test.c">
-      <Filter>external\rdrs\source\rdrs_tests</Filter>
+      <Filter>source\rdrs_tests</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

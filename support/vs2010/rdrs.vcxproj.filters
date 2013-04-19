@@ -1,45 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="external">
-      <UniqueIdentifier>{38FFF4F7-0AD0-0E46-A3F0-E56C98631212}</UniqueIdentifier>
+    <Filter Include="source">
+      <UniqueIdentifier>{4DC3E55B-16B8-BF4D-9E69-7693B5A9762D}</UniqueIdentifier>
     </Filter>
-    <Filter Include="external\rdrs">
-      <UniqueIdentifier>{9770B1F4-3A8F-1D4B-890E-079B8C86FE66}</UniqueIdentifier>
+    <Filter Include="source\rdrs_core">
+      <UniqueIdentifier>{FA65C286-32FF-E947-9570-48B086449039}</UniqueIdentifier>
     </Filter>
-    <Filter Include="external\rdrs\source">
-      <UniqueIdentifier>{CC65A3F7-94AF-9842-BAD8-83577ED40B3B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="external\rdrs\source\rdrs_core">
-      <UniqueIdentifier>{A32CA5FA-1835-A14B-BA2C-DAB4A939E8FC}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="external\rdrs\include">
-      <UniqueIdentifier>{EE84A065-3E47-7547-B03A-ED3E0E87FCE1}</UniqueIdentifier>
+    <Filter Include="include">
+      <UniqueIdentifier>{2EDFF03E-FDD8-3441-B228-366D17C397F4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\external\rdrs\include\rdrs.h">
-      <Filter>external\rdrs\include</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\external\rdrs\include\rdrs_internal.h">
-      <Filter>external\rdrs\include</Filter>
+      <Filter>include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\external\rdrs\include\rdrs_lookup.h">
-      <Filter>external\rdrs\include</Filter>
+      <Filter>include</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\external\rdrs\source\rdrs_core\rdrs_antenna.c">
-      <Filter>external\rdrs\source\rdrs_core</Filter>
+      <Filter>source\rdrs_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\rdrs\source\rdrs_core\rdrs_lookup.c">
-      <Filter>external\rdrs\source\rdrs_core</Filter>
+      <Filter>source\rdrs_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\rdrs\source\rdrs_core\rdrs_physics.c">
-      <Filter>external\rdrs\source\rdrs_core</Filter>
+      <Filter>source\rdrs_core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\external\rdrs\source\rdrs_core\rdrs_system.c">
-      <Filter>external\rdrs\source\rdrs_core</Filter>
+      <Filter>source\rdrs_core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
