@@ -43,7 +43,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="DEBUG;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -61,7 +61,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="DEBUG;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -129,7 +129,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="DEBUG;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -147,7 +147,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="DEBUG;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -214,7 +214,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -231,7 +231,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -301,7 +301,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -318,7 +318,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -387,7 +387,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="DEBUG;EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -405,7 +405,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="DEBUG;EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -473,7 +473,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="DEBUG;EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -491,7 +491,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="DEBUG;EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -558,7 +558,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -575,7 +575,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -645,7 +645,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -662,7 +662,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -731,7 +731,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="DEBUG;EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -749,7 +749,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="DEBUG;EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -817,7 +817,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="DEBUG;EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -835,7 +835,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="DEBUG;EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -902,7 +902,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -919,7 +919,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -989,7 +989,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -1006,7 +1006,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -1075,7 +1075,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="DEBUG;EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -1093,7 +1093,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="DEBUG;EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -1161,7 +1161,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="DEBUG;EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -1179,7 +1179,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="DEBUG;EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -1246,7 +1246,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -1263,7 +1263,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -1333,7 +1333,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="3"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 				PreprocessorDefinitions="EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -1350,7 +1350,7 @@
 			<Tool
 				Name="VCResourceCompilerTool"
 				PreprocessorDefinitions="EVDS_DYNAMIC;IVSS_DYNAMIC;RDRS_DYNAMIC;SIMC_DYNAMIC;EVDS_SINGLETHREADED;IVSS_SINGLETHREADED;RDRS_SINGLETHREADED;SIMC_SINGLETHREADED;_CRT_SECURE_NO_WARNINGS;WIN32;WIN64;MONGO_HAVE_STDINT;MONGO_STATIC_BUILD"
-				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\external\simc\include;..\..\external\mongo-c-driver\src;..\..\external\stdint"
+				AdditionalIncludeDirectories="..\..\external\simc\include;..\..\external\evds\include;..\..\external\rdrs\include;..\..\external\evds\addons;..\..\external\mongo-c-driver\src;..\..\external\nrlmsise-00;..\..\external\stdint"
 			/>
 			<Tool
 				Name="VCPreLinkEventTool"
@@ -1398,6 +1398,40 @@
 	<References>
 	</References>
 	<Files>
+		<Filter
+			Name="addons"
+			Filter=""
+			>
+			<File
+				RelativePath="..\..\external\evds\addons\evds_antenna.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\external\evds\addons\evds_antenna.h"
+				>
+			</File>
+			<File
+				RelativePath="..\..\external\evds\addons\evds_nrlmsise-00.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\external\evds\addons\evds_nrlmsise-00.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="nrlmsise-00"
+			Filter=""
+			>
+			<File
+				RelativePath="..\..\external\nrlmsise-00\nrlmsise-00.c"
+				>
+			</File>
+			<File
+				RelativePath="..\..\external\nrlmsise-00\nrlmsise-00_data.c"
+				>
+			</File>
+		</Filter>
 		<File
 			RelativePath="..\..\source\vsfl.h"
 			>

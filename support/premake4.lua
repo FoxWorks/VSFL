@@ -36,10 +36,17 @@ solution "vsfl"
         "../external/simc/include",
         "../external/evds/include",
         "../external/rdrs/include",
-        "../external/evds/external/simc/include",
+        "../external/evds/addons",
         "../external/mongo-c-driver/src",
+        "../external/nrlmsise-00",
       }
-      files { "../source/**" }
+      files { "../source/**",
+              "../external/evds/addons/evds_antenna.c",
+              "../external/evds/addons/evds_antenna.h",
+              "../external/evds/addons/evds_nrlmsise-00.c",
+              "../external/evds/addons/evds_nrlmsise-00.h",
+              "../external/nrlmsise-00/nrlmsise-00.c",
+              "../external/nrlmsise-00/nrlmsise-00_data.c" }
 
       defines { "MONGO_HAVE_STDINT", "MONGO_STATIC_BUILD" }
       links { "rdrs","evds","mongo-c-driver" }
