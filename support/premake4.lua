@@ -2,10 +2,14 @@ SIMC_STANDALONE = false
 EVDS_STANDALONE = false
 RDRS_STANDALONE = false
 solution "vsfl"
+   debugdir "../debug"
    dofile("./../external/simc/support/premake4_common.lua")
    dofile("./../external/simc/support/premake4.lua")
    dofile("./../external/evds/support/premake4.lua")
    dofile("./../external/rdrs/support/premake4.lua")
+   
+-- Create working directory
+if not os.isdir("../debug") then os.mkdir("../debug") end
 
 
 --------------------------------------------------------------------------------

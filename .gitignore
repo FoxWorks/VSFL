@@ -3,6 +3,7 @@ bin/*
 etc/*
 doc/*/*
 export/*
+debug/*
 
 ## OS-specific
 Thumbs.db
