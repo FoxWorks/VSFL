@@ -68,7 +68,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evdsd32.lib"
+				AdditionalDependencies="..\..\bin\evdsd32.lib ..\..\bin\simcd32.lib"
 				OutputFile="$(OutDir)\evds_tutorialsd32.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -154,7 +154,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evdsd.lib"
+				AdditionalDependencies="..\..\bin\evdsd.lib ..\..\bin\simcd.lib"
 				OutputFile="$(OutDir)\evds_tutorialsd.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -238,7 +238,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evds32.lib"
+				AdditionalDependencies="..\..\bin\evds32.lib ..\..\bin\simc32.lib"
 				OutputFile="$(OutDir)\evds_tutorials32.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -325,7 +325,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evds.lib"
+				AdditionalDependencies="..\..\bin\evds.lib ..\..\bin\simc.lib"
 				OutputFile="$(OutDir)\evds_tutorials.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -412,7 +412,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evdsd32.lib"
+				AdditionalDependencies="..\..\bin\evdsd32.lib ..\..\bin\simcd32.lib"
 				OutputFile="$(OutDir)\evds_tutorialsd32.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -498,7 +498,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evdsd.lib"
+				AdditionalDependencies="..\..\bin\evdsd.lib ..\..\bin\simcd.lib"
 				OutputFile="$(OutDir)\evds_tutorialsd.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -582,7 +582,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evds32.lib"
+				AdditionalDependencies="..\..\bin\evds32.lib ..\..\bin\simc32.lib"
 				OutputFile="$(OutDir)\evds_tutorials32.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -669,7 +669,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evds.lib"
+				AdditionalDependencies="..\..\bin\evds.lib ..\..\bin\simc.lib"
 				OutputFile="$(OutDir)\evds_tutorials.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -756,7 +756,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evds_std32.lib"
+				AdditionalDependencies="..\..\bin\evds_std32.lib ..\..\bin\simc_std32.lib"
 				OutputFile="$(OutDir)\evds_tutorials_std32.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -842,7 +842,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evds_std.lib"
+				AdditionalDependencies="..\..\bin\evds_std.lib ..\..\bin\simc_std.lib"
 				OutputFile="$(OutDir)\evds_tutorials_std.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -926,7 +926,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evds_st32.lib"
+				AdditionalDependencies="..\..\bin\evds_st32.lib ..\..\bin\simc_st32.lib"
 				OutputFile="$(OutDir)\evds_tutorials_st32.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -1013,7 +1013,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evds_st.lib"
+				AdditionalDependencies="..\..\bin\evds_st.lib ..\..\bin\simc_st.lib"
 				OutputFile="$(OutDir)\evds_tutorials_st.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -1100,7 +1100,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evds_std32.lib"
+				AdditionalDependencies="..\..\bin\evds_std32.lib ..\..\bin\simc_std32.lib"
 				OutputFile="$(OutDir)\evds_tutorials_std32.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -1186,7 +1186,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evds_std.lib"
+				AdditionalDependencies="..\..\bin\evds_std.lib ..\..\bin\simc_std.lib"
 				OutputFile="$(OutDir)\evds_tutorials_std.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -1270,7 +1270,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evds_st32.lib"
+				AdditionalDependencies="..\..\bin\evds_st32.lib ..\..\bin\simc_st32.lib"
 				OutputFile="$(OutDir)\evds_tutorials_st32.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -1357,7 +1357,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\evds_st.lib"
+				AdditionalDependencies="..\..\bin\evds_st.lib ..\..\bin\simc_st.lib"
 				OutputFile="$(OutDir)\evds_tutorials_st.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""

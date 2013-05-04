@@ -68,7 +68,6 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				AdditionalDependencies="..\..\bin\simcd32.lib"
 				OutputFile="$(OutDir)\evdsd32.lib"
 				AdditionalOptions="/MACHINE:X86"
 			/>
@@ -148,7 +147,6 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				AdditionalDependencies="..\..\bin\simcd.lib"
 				OutputFile="$(OutDir)\evdsd.lib"
 				AdditionalOptions="/MACHINE:X64"
 			/>
@@ -226,7 +224,6 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				AdditionalDependencies="..\..\bin\simc32.lib"
 				OutputFile="$(OutDir)\evds32.lib"
 				AdditionalOptions="/MACHINE:X86"
 			/>
@@ -305,7 +302,6 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				AdditionalDependencies="..\..\bin\simc.lib"
 				OutputFile="$(OutDir)\evds.lib"
 				AdditionalOptions="/MACHINE:X64"
 			/>
@@ -384,7 +380,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\simcd32.lib"
 				OutputFile="$(OutDir)\evdsd32.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -470,7 +465,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\simcd.lib"
 				OutputFile="$(OutDir)\evdsd.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -554,7 +548,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\simc32.lib"
 				OutputFile="$(OutDir)\evds32.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -641,7 +634,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\simc.lib"
 				OutputFile="$(OutDir)\evds.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -728,7 +720,6 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				AdditionalDependencies="..\..\bin\simc_std32.lib"
 				OutputFile="$(OutDir)\evds_std32.lib"
 				AdditionalOptions="/MACHINE:X86"
 			/>
@@ -808,7 +799,6 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				AdditionalDependencies="..\..\bin\simc_std.lib"
 				OutputFile="$(OutDir)\evds_std.lib"
 				AdditionalOptions="/MACHINE:X64"
 			/>
@@ -886,7 +876,6 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				AdditionalDependencies="..\..\bin\simc_st32.lib"
 				OutputFile="$(OutDir)\evds_st32.lib"
 				AdditionalOptions="/MACHINE:X86"
 			/>
@@ -965,7 +954,6 @@
 			/>
 			<Tool
 				Name="VCLibrarianTool"
-				AdditionalDependencies="..\..\bin\simc_st.lib"
 				OutputFile="$(OutDir)\evds_st.lib"
 				AdditionalOptions="/MACHINE:X64"
 			/>
@@ -1044,7 +1032,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\simc_std32.lib"
 				OutputFile="$(OutDir)\evds_std32.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -1130,7 +1117,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\simc_std.lib"
 				OutputFile="$(OutDir)\evds_std.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -1214,7 +1200,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\simc_st32.lib"
 				OutputFile="$(OutDir)\evds_st32.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -1301,7 +1286,6 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\simc_st.lib"
 				OutputFile="$(OutDir)\evds_st.dll"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""

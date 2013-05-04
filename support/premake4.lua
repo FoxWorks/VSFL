@@ -53,10 +53,8 @@ if not os.isdir("../debug") then os.mkdir("../debug") end
               "../external/nrlmsise-00/nrlmsise-00_data.c" }
 
       defines { "MONGO_HAVE_STDINT", "MONGO_STATIC_BUILD" }
-      links { "rdrs","evds","mongo-c-driver" }
-
+      links { "rdrs","evds","simc","mongo-c-driver" }
+      
       configuration "windows"
          links { "wsock32" }
          includedirs { "../external/stdint" }
-      configuration "not windows"
-         links { "simc", "tinyxml" }
