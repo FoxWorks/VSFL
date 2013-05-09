@@ -34,8 +34,10 @@
 #include <windows.h>
 #include "vsfl.h"
 
-//Virtual SpaceFlight Network EVDS related information
-VSFL_EVDS vsfl = { 0 };
+//EVDS system object
+EVDS_SYSTEM* evds_system = 0;
+//SRW lock that prevents inconsistent state during save
+SIMC_SRW_ID* save_lock = 0;
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -50,19 +52,19 @@ void VSFL_EVDS_CreateEmptyState() {
 	EVDS_VECTOR vector;
 
 	//Create solar system inertial space
-	EVDS_Object_Create(vsfl.evds_system,0,&solar_system);
+	EVDS_Object_Create(evds_system,0,&solar_system);
 	EVDS_Object_SetName(solar_system,"Solar_Inertial_Space");
 	EVDS_Object_SetType(solar_system,"propagator_rk4");
 	EVDS_Object_Initialize(solar_system,1);
 
 	//Create planet Earth inertial space
-	EVDS_Object_Create(vsfl.evds_system,solar_system,&inertial_earth);
+	EVDS_Object_Create(evds_system,solar_system,&inertial_earth);
 	EVDS_Object_SetName(inertial_earth,"Earth_Inertial_Space");
 	EVDS_Object_SetType(inertial_earth,"propagator_rk4");
 	EVDS_Object_Initialize(inertial_earth,1);
 
 	//Create planet Earth
-	EVDS_Object_Create(vsfl.evds_system,inertial_earth,&planet_earth);
+	EVDS_Object_Create(evds_system,inertial_earth,&planet_earth);
 	EVDS_Object_SetType(planet_earth,"planet");
 	EVDS_Object_SetName(planet_earth,"Earth");
 	EVDS_Object_SetAngularVelocity(planet_earth,inertial_earth,0,0,2*EVDS_PI/86164.0);
@@ -73,7 +75,7 @@ void VSFL_EVDS_CreateEmptyState() {
 	EVDS_Object_Initialize(planet_earth,1);
 
 	//Create moon
-	EVDS_Object_Create(vsfl.evds_system,inertial_earth,&planet_earth_moon);
+	EVDS_Object_Create(evds_system,inertial_earth,&planet_earth_moon);
 	EVDS_Object_SetType(planet_earth_moon,"planet");
 	EVDS_Object_SetName(planet_earth_moon,"Moon");
 	EVDS_Object_AddFloatVariable(planet_earth_moon,"mu",0.0490277e14,0);	//m3 sec-2
@@ -83,7 +85,7 @@ void VSFL_EVDS_CreateEmptyState() {
 	EVDS_Object_Initialize(planet_earth_moon,1);
 
 	//Create hangar for storing unlaunched objects
-	EVDS_Object_Create(vsfl.evds_system,planet_earth,&hangar_building);
+	EVDS_Object_Create(evds_system,planet_earth,&hangar_building);
 	EVDS_Object_SetName(hangar_building,"Hangar (Baikonur)");
 	EVDS_Object_SetType(hangar_building,"building_hangar");
 	EVDS_Vector_FromGeographicCoordinates(planet_earth,&vector,45.951,63.497,0);
@@ -91,7 +93,7 @@ void VSFL_EVDS_CreateEmptyState() {
 	EVDS_Object_Initialize(hangar_building,1);
 
 	//Start from current time
-	vsfl.mjd = SIMC_Thread_GetMJDTime();
+	EVDS_System_SetTime(evds_system,SIMC_Thread_GetMJDTime());
 }
 
 
@@ -99,7 +101,7 @@ void VSFL_EVDS_CreateEmptyState() {
 /// @brief Upload a new file and add vessels from it to database
 ////////////////////////////////////////////////////////////////////////////////
 int VSFL_EVDS_Callback_LoadObject(EVDS_OBJECT_LOADEX* info, EVDS_OBJECT* object) {
-	EVDS_Object_Initialize(object,0);
+	EVDS_Object_Initialize(object,1);
 	return EVDS_OK;
 }
 
@@ -109,7 +111,7 @@ void VSFL_EVDS_LoadFile(char* filename) {
 
 	//Get hangar
 	VSFL_Log("mongodb_vessel","Uploading vessel '%s'",filename);
-	if (EVDS_System_GetObjectByName(vsfl.evds_system,"Hangar (Baikonur)",0,&hangar_building) != EVDS_OK) {
+	if (EVDS_System_GetObjectByName(evds_system,"Hangar (Baikonur)",0,&hangar_building) != EVDS_OK) {
 		VSFL_Log("mongodb_vessel","No hangar for vessel '%s' found!",filename);
 		return;
 	}
@@ -130,7 +132,7 @@ void VSFL_EVDS_UpdateVesselInformation() {
 	SIMC_LIST* list;
 	SIMC_LIST_ENTRY* entry;
 
-	if (EVDS_System_GetObjectsByType(vsfl.evds_system,"vessel",&list) == EVDS_OK) {
+	if (EVDS_System_GetObjectsByType(evds_system,"vessel",&list) == EVDS_OK) {
 		entry = SIMC_List_GetFirst(list);
 		while (entry) {
 			VSFL_MongoDB_UpdateVesselInformation((EVDS_OBJECT*)SIMC_List_GetData(list,entry));
@@ -147,7 +149,7 @@ void VSFL_EVDS_UpdateVesselClocks(double time_step) {
 	SIMC_LIST* list;
 	SIMC_LIST_ENTRY* entry;
 
-	if (EVDS_System_GetObjectsByType(vsfl.evds_system,"vessel",&list) == EVDS_OK) {
+	if (EVDS_System_GetObjectsByType(evds_system,"vessel",&list) == EVDS_OK) {
 		entry = SIMC_List_GetFirst(list);
 		while (entry) {
 			EVDS_REAL value,altitude,velocity;
@@ -203,14 +205,15 @@ void VSFL_EVDS_SimulationThread() {
 	double late_notify_time = -1e9;
 
 	EVDS_OBJECT* root_inertial_space;
-	EVDS_System_GetRootInertialSpace(vsfl.evds_system,&root_inertial_space);
+	EVDS_System_GetRootInertialSpace(evds_system,&root_inertial_space);
 	while (1) {
-		double mjd,mjd_offset;
+		double mjd,mjd_offset,vsfl_mjd;
 		double time_step,time_step_mjd;
 
 		//Get difference between current time and server time
+		EVDS_System_GetTime(evds_system,&vsfl_mjd);
 		mjd = SIMC_Thread_GetMJDTime();
-		mjd_offset = mjd - vsfl.mjd;
+		mjd_offset = mjd - vsfl_mjd;
 
 		//Select simulation precision:
 		//	Lag under 1 minute: 60 FPS
@@ -223,26 +226,27 @@ void VSFL_EVDS_SimulationThread() {
 		time_step_mjd = time_step/86400.0;
 
 		//Check if state must be propagate
-		if (mjd > vsfl.mjd + time_step_mjd) {
+		if (mjd > vsfl_mjd + time_step_mjd) {
 			//Enter shared mode
-			SIMC_SRW_EnterRead(vsfl.save_lock);
+			SIMC_SRW_EnterRead(save_lock);
 
 			//Propagate state of objects in the inertial coordinate system
 			EVDS_Object_Solve(root_inertial_space,time_step);
-			vsfl.mjd += time_step_mjd;
+			vsfl_mjd += time_step_mjd;
+			EVDS_System_SetTime(evds_system,vsfl_mjd);
 
 			//Update vessel internal clocks
 			VSFL_EVDS_UpdateVesselClocks(time_step);
 
 			//Leave shared mode
-			SIMC_SRW_LeaveRead(vsfl.save_lock);
+			SIMC_SRW_LeaveRead(save_lock);
 
 #ifdef _WIN32
 			{
 				static int counter = 0;
 				counter++;
 				if (counter % 60 == 0) {
-					time_t unix_time = VSFL_MJDToUnix(vsfl.mjd);
+					time_t unix_time = VSFL_MJDToUnix(vsfl_mjd);
 					struct tm * timeinfo;
 
 					char buffer[1024] = { 0 };
@@ -323,12 +327,12 @@ int VSFL_EVDS_OnInitialize(EVDS_SYSTEM* system, EVDS_SOLVER* solver, EVDS_OBJECT
 ////////////////////////////////////////////////////////////////////////////////
 void VSFL_EVDS_Initialize() {
 	//Initialize system
-	EVDS_System_Create(&vsfl.evds_system);
-	EVDS_Common_Register(vsfl.evds_system);
-	EVDS_System_SetCallback_OnInitialize(vsfl.evds_system,VSFL_EVDS_OnInitialize);
+	EVDS_System_Create(&evds_system);
+	EVDS_Common_Register(evds_system);
+	EVDS_System_SetCallback_OnInitialize(evds_system,VSFL_EVDS_OnInitialize);
 
 	//Create service lock
-	vsfl.save_lock = SIMC_SRW_Create();
+	save_lock = SIMC_SRW_Create();
 
 	//Restore server state
 	VSFL_MongoDB_RestoreState();

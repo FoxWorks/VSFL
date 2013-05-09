@@ -53,19 +53,11 @@ void VSFL_Log(char* source, char* text, ...);
 //Get MJD time
 time_t VSFL_MJDToUnix(double mjd);
 
-//Global VSFL object
-typedef struct VSFL_EVDS_TAG {
-	// EVDS system object
-	EVDS_SYSTEM* evds_system;
-
-	// SRW lock that prevents inconsistent state during save
-	SIMC_SRW_ID* save_lock;
-
-	// Current server time
-	double mjd;
-} VSFL_EVDS;
-
-extern VSFL_EVDS vsfl;
+// EVDS system object
+extern EVDS_SYSTEM* evds_system;
+//SRW lock that prevents inconsistent state during save
+extern SIMC_SRW_ID* save_lock;
+// Connection to MongoDB
 extern mongo* mongo_connection;
 
 #ifdef __cplusplus

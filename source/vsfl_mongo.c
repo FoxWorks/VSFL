@@ -279,14 +279,14 @@ void VSFL_MongoDB_RestoreState() {
 
 			//Load data
 			EVDS_OBJECT* root_inertial_space;
-			EVDS_System_GetRootInertialSpace(vsfl.evds_system,&root_inertial_space);
+			EVDS_System_GetRootInertialSpace(evds_system,&root_inertial_space);
 			EVDS_Object_LoadFromString(root_inertial_space,bson_iterator_string(&iterator[1]),0);
 
 			//Update time
-			vsfl.mjd = bson_iterator_double(&iterator[0]);
+			EVDS_System_SetTime(evds_system,bson_iterator_double(&iterator[0]));
 			
 			{
-				time_t unix_time = VSFL_MJDToUnix(vsfl.mjd);
+				time_t unix_time = VSFL_MJDToUnix(bson_iterator_double(&iterator[0]));
 				struct tm * timeinfo;
 				char buffer[1024] = { 0 };
 				timeinfo = localtime(&unix_time);
@@ -309,6 +309,7 @@ void VSFL_MongoDB_RestoreState() {
 /// @brief Save simulation state to the database
 ////////////////////////////////////////////////////////////////////////////////
 void VSFL_MongoDB_StoreState() {
+	double vsfl_mjd;
 	EVDS_OBJECT* root_inertial_space;
 	EVDS_OBJECT_SAVEEX info = { 0 };
 	bson op[1];
@@ -320,20 +321,21 @@ void VSFL_MongoDB_StoreState() {
 				 EVDS_OBJECT_SAVEEX_SAVE_UIDS;
 
 	//Enter exclusive mode
-	SIMC_SRW_EnterWrite(vsfl.save_lock);
+	SIMC_SRW_EnterWrite(save_lock);
 
 	//Save solar system state
-	EVDS_System_GetRootInertialSpace(vsfl.evds_system,&root_inertial_space);
+	EVDS_System_GetRootInertialSpace(evds_system,&root_inertial_space);
 	if (EVDS_Object_SaveEx(root_inertial_space,0,&info) != EVDS_OK) {
 		VSFL_Log("save_state","Could not store server state");
 		return;
 	}
 
 	//Leave exclusive mode
-	SIMC_SRW_LeaveWrite(vsfl.save_lock);
+	SIMC_SRW_LeaveWrite(save_lock);
 
 	//Get state snapshot
-	VSFL_Log("save_state","Save server state (%f)",vsfl.mjd);
+	EVDS_System_GetTime(evds_system,&vsfl_mjd);
+	VSFL_Log("save_state","Save server state (%f)",vsfl_mjd);
 	{
 		FILE* f = fopen("state_test.txt","w+");
 		fprintf(f,"%s",info.description);
@@ -343,7 +345,7 @@ void VSFL_MongoDB_StoreState() {
 	//Remove old states
 	bson_init(op);
 	bson_append_start_object(op, "mjd_time");
-		bson_append_double(op, "$lt", vsfl.mjd-60.0/86400.0); //Keeps last minute worth of states
+		bson_append_double(op, "$lt", vsfl_mjd-60.0/86400.0); //Keeps last minute worth of states
 	bson_append_finish_object(op);
 	bson_finish(op);
 	mongo_remove(mongo_connection, "vsfl.states", op, 0);
@@ -351,7 +353,7 @@ void VSFL_MongoDB_StoreState() {
 	//Write state to database
 	bson_init(op);
 	bson_append_time_t(op, "real_time", time(0));
-	bson_append_double(op, "mjd_time", vsfl.mjd);
+	bson_append_double(op, "mjd_time", vsfl_mjd);
 	bson_append_string(op, "xml", info.description);
 	bson_finish(op);
 	mongo_insert(mongo_connection, "vsfl.states", op, 0);
