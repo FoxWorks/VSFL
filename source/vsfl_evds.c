@@ -87,7 +87,7 @@ void VSFL_EVDS_CreateEmptyState() {
 	//Create hangar for storing unlaunched objects
 	EVDS_Object_Create(evds_system,planet_earth,&hangar_building);
 	EVDS_Object_SetName(hangar_building,"Hangar (Baikonur)");
-	EVDS_Object_SetType(hangar_building,"building_hangar");
+	EVDS_Object_SetType(hangar_building,"static_body");
 	EVDS_Vector_FromGeographicCoordinates(planet_earth,&vector,45.951,63.497,0);
 	EVDS_Object_SetPosition(hangar_building,vector.coordinate_system,vector.x,vector.y,vector.z);
 	EVDS_Object_Initialize(hangar_building,1);
@@ -102,6 +102,8 @@ void VSFL_EVDS_CreateEmptyState() {
 ////////////////////////////////////////////////////////////////////////////////
 int VSFL_EVDS_Callback_LoadObject(EVDS_OBJECT_LOADEX* info, EVDS_OBJECT* object) {
 	EVDS_Object_Initialize(object,1);
+	EVDS_Object_SetPosition(object,info->userdata,0,0,0);
+	EVDS_Object_SetOrientation(object,info->userdata,0,90,0);
 	return EVDS_OK;
 }
 
@@ -118,6 +120,7 @@ void VSFL_EVDS_LoadFile(char* filename) {
 
 	//Load vessels into the hangar
 	info.OnLoadObject = &VSFL_EVDS_Callback_LoadObject;
+	info.userdata = hangar_building;
 	if (EVDS_Object_LoadEx(hangar_building,filename,&info) != EVDS_OK) {
 		VSFL_Log("mongodb_vessel","Could not read vessel file '%s'",filename);
 		return;

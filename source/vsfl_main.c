@@ -83,7 +83,7 @@ void main() {
 		char command[256] = { 0 };
 		scanf("%255s",command);
 
-		if (strcmp(command,"upload") == 0) { //Upload vessels
+		if (strcmp(command,"load") == 0) { //Upload vessels
 			char filename[256] = { 0 };
 			scanf("%255s",filename);
 

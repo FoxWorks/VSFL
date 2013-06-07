@@ -26,7 +26,7 @@ if not os.isdir("../debug") then os.mkdir("../debug") end
         "../external/mongo-c-driver/src/*.c",
         "../external/mongo-c-driver/src/*.h",
       }
-      defines { "MONGO_HAVE_STDINT", "MONGO_STATIC_BUILD" }
+      defines { "MONGO_HAVE_STDINT", "MONGO_STATIC_BUILD", "snprintf=_snprintf" }
       
       configuration "windows"
          includedirs { "../external/stdint" }
@@ -44,13 +44,15 @@ if not os.isdir("../debug") then os.mkdir("../debug") end
         "../external/mongo-c-driver/src",
         "../external/nrlmsise-00",
       }
-      files { "../source/**",
-              "../external/evds/addons/evds_antenna.c",
-              "../external/evds/addons/evds_antenna.h",
-              "../external/evds/addons/evds_nrlmsise-00.c",
-              "../external/evds/addons/evds_nrlmsise-00.h",
-              "../external/nrlmsise-00/nrlmsise-00.c",
-              "../external/nrlmsise-00/nrlmsise-00_data.c" }
+      files {
+        "../source/**",
+        "../external/evds/addons/evds_antenna.c",
+        "../external/evds/addons/evds_antenna.h",
+        "../external/evds/addons/evds_nrlmsise-00.c",
+        "../external/evds/addons/evds_nrlmsise-00.h",
+        "../external/nrlmsise-00/nrlmsise-00.c",
+        "../external/nrlmsise-00/nrlmsise-00_data.c",
+      }
 
       defines { "MONGO_HAVE_STDINT", "MONGO_STATIC_BUILD" }
       links { "rdrs","evds","simc","mongo-c-driver" }
