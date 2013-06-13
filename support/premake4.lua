@@ -1,11 +1,13 @@
 SIMC_STANDALONE = false
 EVDS_STANDALONE = false
+IVSS_STANDALONE = false
 RDRS_STANDALONE = false
 solution "vsfl"
    debugdir "../debug"
    dofile("./../external/simc/support/premake4_common.lua")
    dofile("./../external/simc/support/premake4.lua")
    dofile("./../external/evds/support/premake4.lua")
+   dofile("./../external/ivss/support/premake4.lua")
    dofile("./../external/rdrs/support/premake4.lua")
    
 -- Create working directory
@@ -55,7 +57,7 @@ if not os.isdir("../debug") then os.mkdir("../debug") end
       }
 
       defines { "MONGO_HAVE_STDINT", "MONGO_STATIC_BUILD" }
-      links { "rdrs","evds","simc","mongo-c-driver" }
+      links { "simc","evds","ivss","rdrs","mongo-c-driver" }
       
       configuration "windows"
          links { "wsock32" }

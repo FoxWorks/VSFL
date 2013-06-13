@@ -68,7 +68,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrsd32.lib ..\..\bin\evdsd32.lib ..\..\bin\simcd32.lib ..\..\bin\mongo-c-driverd32.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simcd32.lib ..\..\bin\evdsd32.lib ..\..\bin\ivssd32.lib ..\..\bin\rdrsd32.lib ..\..\bin\mongo-c-driverd32.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_serverd32.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -154,7 +154,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrsd.lib ..\..\bin\evdsd.lib ..\..\bin\simcd.lib ..\..\bin\mongo-c-driverd.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simcd.lib ..\..\bin\evdsd.lib ..\..\bin\ivssd.lib ..\..\bin\rdrsd.lib ..\..\bin\mongo-c-driverd.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_serverd.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -238,7 +238,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrs32.lib ..\..\bin\evds32.lib ..\..\bin\simc32.lib ..\..\bin\mongo-c-driver32.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simc32.lib ..\..\bin\evds32.lib ..\..\bin\ivss32.lib ..\..\bin\rdrs32.lib ..\..\bin\mongo-c-driver32.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_server32.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -325,7 +325,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrs.lib ..\..\bin\evds.lib ..\..\bin\simc.lib ..\..\bin\mongo-c-driver.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simc.lib ..\..\bin\evds.lib ..\..\bin\ivss.lib ..\..\bin\rdrs.lib ..\..\bin\mongo-c-driver.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_server.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -412,7 +412,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrsd32.lib ..\..\bin\evdsd32.lib ..\..\bin\simcd32.lib ..\..\bin\mongo-c-driverd32.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simcd32.lib ..\..\bin\evdsd32.lib ..\..\bin\ivssd32.lib ..\..\bin\rdrsd32.lib ..\..\bin\mongo-c-driverd32.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_serverd32.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -498,7 +498,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrsd.lib ..\..\bin\evdsd.lib ..\..\bin\simcd.lib ..\..\bin\mongo-c-driverd.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simcd.lib ..\..\bin\evdsd.lib ..\..\bin\ivssd.lib ..\..\bin\rdrsd.lib ..\..\bin\mongo-c-driverd.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_serverd.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -582,7 +582,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrs32.lib ..\..\bin\evds32.lib ..\..\bin\simc32.lib ..\..\bin\mongo-c-driver32.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simc32.lib ..\..\bin\evds32.lib ..\..\bin\ivss32.lib ..\..\bin\rdrs32.lib ..\..\bin\mongo-c-driver32.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_server32.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -669,7 +669,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrs.lib ..\..\bin\evds.lib ..\..\bin\simc.lib ..\..\bin\mongo-c-driver.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simc.lib ..\..\bin\evds.lib ..\..\bin\ivss.lib ..\..\bin\rdrs.lib ..\..\bin\mongo-c-driver.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_server.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -756,7 +756,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrs_std32.lib ..\..\bin\evds_std32.lib ..\..\bin\simc_std32.lib ..\..\bin\mongo-c-driver_std32.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simc_std32.lib ..\..\bin\evds_std32.lib ..\..\bin\ivss_std32.lib ..\..\bin\rdrs_std32.lib ..\..\bin\mongo-c-driver_std32.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_server_std32.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -842,7 +842,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrs_std.lib ..\..\bin\evds_std.lib ..\..\bin\simc_std.lib ..\..\bin\mongo-c-driver_std.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simc_std.lib ..\..\bin\evds_std.lib ..\..\bin\ivss_std.lib ..\..\bin\rdrs_std.lib ..\..\bin\mongo-c-driver_std.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_server_std.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -926,7 +926,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrs_st32.lib ..\..\bin\evds_st32.lib ..\..\bin\simc_st32.lib ..\..\bin\mongo-c-driver_st32.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simc_st32.lib ..\..\bin\evds_st32.lib ..\..\bin\ivss_st32.lib ..\..\bin\rdrs_st32.lib ..\..\bin\mongo-c-driver_st32.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_server_st32.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -1013,7 +1013,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrs_st.lib ..\..\bin\evds_st.lib ..\..\bin\simc_st.lib ..\..\bin\mongo-c-driver_st.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simc_st.lib ..\..\bin\evds_st.lib ..\..\bin\ivss_st.lib ..\..\bin\rdrs_st.lib ..\..\bin\mongo-c-driver_st.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_server_st.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -1100,7 +1100,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrs_std32.lib ..\..\bin\evds_std32.lib ..\..\bin\simc_std32.lib ..\..\bin\mongo-c-driver_std32.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simc_std32.lib ..\..\bin\evds_std32.lib ..\..\bin\ivss_std32.lib ..\..\bin\rdrs_std32.lib ..\..\bin\mongo-c-driver_std32.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_server_std32.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -1186,7 +1186,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrs_std.lib ..\..\bin\evds_std.lib ..\..\bin\simc_std.lib ..\..\bin\mongo-c-driver_std.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simc_std.lib ..\..\bin\evds_std.lib ..\..\bin\ivss_std.lib ..\..\bin\rdrs_std.lib ..\..\bin\mongo-c-driver_std.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_server_std.exe"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories=""
@@ -1270,7 +1270,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrs_st32.lib ..\..\bin\evds_st32.lib ..\..\bin\simc_st32.lib ..\..\bin\mongo-c-driver_st32.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simc_st32.lib ..\..\bin\evds_st32.lib ..\..\bin\ivss_st32.lib ..\..\bin\rdrs_st32.lib ..\..\bin\mongo-c-driver_st32.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_server_st32.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
@@ -1357,7 +1357,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="..\..\bin\rdrs_st.lib ..\..\bin\evds_st.lib ..\..\bin\simc_st.lib ..\..\bin\mongo-c-driver_st.lib wsock32.lib"
+				AdditionalDependencies="..\..\bin\simc_st.lib ..\..\bin\evds_st.lib ..\..\bin\ivss_st.lib ..\..\bin\rdrs_st.lib ..\..\bin\mongo-c-driver_st.lib wsock32.lib"
 				OutputFile="$(OutDir)\vsfl_server_st.exe"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories=""
