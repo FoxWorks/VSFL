@@ -68,18 +68,18 @@ void VSFL_EVDS_CreateEmptyState() {
 	EVDS_Object_SetType(planet_earth,"planet");
 	EVDS_Object_SetName(planet_earth,"Earth");
 	EVDS_Object_SetAngularVelocity(planet_earth,inertial_earth,0,0,2*EVDS_PI/86164.0);
-	EVDS_Object_AddFloatVariable(planet_earth,"mu",3.9860044e14,0);		//m3 sec-2
-	EVDS_Object_AddFloatVariable(planet_earth,"radius",6378.145e3,0);	//m
-	EVDS_Object_AddFloatVariable(planet_earth,"period",86164.10,0);		//sec
-	EVDS_Object_AddFloatVariable(planet_earth,"is_static",1,0);			//Planet does not move
+	EVDS_Object_AddRealVariable(planet_earth,"mu",3.9860044e14,0);		//m3 sec-2
+	EVDS_Object_AddRealVariable(planet_earth,"radius",6378.145e3,0);	//m
+	EVDS_Object_AddRealVariable(planet_earth,"period",86164.10,0);		//sec
+	EVDS_Object_AddRealVariable(planet_earth,"is_static",1,0);			//Planet does not move
 	EVDS_Object_Initialize(planet_earth,1);
 
 	//Create moon
 	EVDS_Object_Create(evds_system,inertial_earth,&planet_earth_moon);
 	EVDS_Object_SetType(planet_earth_moon,"planet");
 	EVDS_Object_SetName(planet_earth_moon,"Moon");
-	EVDS_Object_AddFloatVariable(planet_earth_moon,"mu",0.0490277e14,0);	//m3 sec-2
-	EVDS_Object_AddFloatVariable(planet_earth_moon,"radius",1737e3,0);		//m
+	EVDS_Object_AddRealVariable(planet_earth_moon,"mu",0.0490277e14,0);	//m3 sec-2
+	EVDS_Object_AddRealVariable(planet_earth_moon,"radius",1737e3,0);		//m
 	EVDS_Object_SetPosition(planet_earth_moon,inertial_earth,0.0,362570e3,0.0);
 	EVDS_Object_SetVelocity(planet_earth_moon,inertial_earth,1000.0,0.0,0.0);
 	EVDS_Object_Initialize(planet_earth_moon,1);
@@ -193,6 +193,38 @@ void VSFL_EVDS_UpdateVesselClocks(double time_step) {
 			if (EVDS_Object_GetVariable(vessel,"flight_distance",&variable) == EVDS_OK) {
 				EVDS_Variable_GetReal(variable,&value);
 				EVDS_Variable_SetReal(variable,value + velocity*time_step);
+			}
+
+			
+			//Run test
+			{
+				char name[256] = { 0 };
+				EVDS_OBJECT* parent;
+				EVDS_Object_GetParent(vessel,&parent);
+
+				EVDS_Object_GetName(parent,name,255);
+				if (strcmp(name,"Earth_Inertial_Space") != 0) {
+					if (EVDS_System_GetObjectByName(evds_system,"Earth_Inertial_Space",0,&parent) == EVDS_OK) {
+						EVDS_Object_SetParent(vessel,parent);
+					}
+				}
+			}
+			{
+				char name[256] = { 0 };
+				EVDS_REAL lat,lon,alt;
+				EVDS_REAL pitch,yaw,roll;
+				EVDS_Vector_ToGeographicCoordinates(planet,&state.position,&lat,&lon,&alt);
+				EVDS_Object_GetName(vessel,name,255);
+				EVDS_Quaternion_GetEuler(&state.orientation,planet,&roll,&pitch,&yaw);
+				roll = EVDS_DEG(roll);
+				pitch = EVDS_DEG(pitch);
+				yaw = EVDS_DEG(yaw);
+
+				//EVDS_Object_GetStateVector(vessel,&state);
+				//EVDS_Quaternion_SetEuler(&state.orientation,state.orientation.coordinate_system,EVDS_DEG(0),EVDS_DEG(-90),EVDS_DEG(0));
+				//EVDS_Object_SetStateVector(vessel,&state);
+
+				printf("%s [%.3f %.3f] %.3f km  %.3f m/s %.0f %.0f %.0f\n",name,lat,lon,alt*1e-3,velocity,roll,pitch,yaw);
 			}
 
 			entry = SIMC_List_GetNext(list,entry);

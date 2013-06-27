@@ -187,7 +187,16 @@ void VSFL_MongoDB_UpdateVesselInformation(EVDS_OBJECT* object) {
 		bson_append_string	(op, "name", name);
 		bson_append_string	(op, "vsa", "XSAG");
 		bson_append_string	(op, "status", "hangar");
-		bson_append_string	(op, "description", "");
+
+		
+		if (EVDS_Object_GetVariable(object,"comments",&variable) == EVDS_OK) {
+			char comments[65537] = { 0 };
+			EVDS_Variable_GetString(variable,comments,65536,0);
+			bson_append_string	(op, "description", comments);
+			VSFL_Log("vessel","Comments:\n%s",comments);
+		} else {
+			bson_append_string	(op, "description", "");
+		}		
 		bson_finish(op);
 
 		//Add new entry

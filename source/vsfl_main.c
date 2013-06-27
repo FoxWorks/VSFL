@@ -90,7 +90,7 @@ void main() {
 			strcat(filename,".evds");
 			VSFL_EVDS_LoadFile(filename);
 		} else if (strcmp(command,"list") == 0) { //List of vessels
-			VSFL_MongoDB_ListVessels();
+			VSFL_MongoDB_ListVessels();	
 		} else {
 			VSFL_Log("vsfl","Unknown command %s",command);
 		}
