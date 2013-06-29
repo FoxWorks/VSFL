@@ -50,6 +50,9 @@ void VSFL_EVDS_CreateEmptyState() {
 	EVDS_OBJECT* planet_earth_moon;
 	EVDS_OBJECT* hangar_building;
 	EVDS_VECTOR vector;
+	EVDS_REAL lat,lon,alt;
+	EVDS_REAL roll,pitch,yaw;
+	EVDS_QUATERNION quaternion;
 
 	//Create solar system inertial space
 	EVDS_Object_Create(evds_system,0,&solar_system);
@@ -67,7 +70,7 @@ void VSFL_EVDS_CreateEmptyState() {
 	EVDS_Object_Create(evds_system,inertial_earth,&planet_earth);
 	EVDS_Object_SetType(planet_earth,"planet");
 	EVDS_Object_SetName(planet_earth,"Earth");
-	EVDS_Object_SetAngularVelocity(planet_earth,inertial_earth,0,0,2*EVDS_PI/86164.0);
+	//EVDS_Object_SetAngularVelocity(planet_earth,inertial_earth,0,0,2*EVDS_PI/86164.0);
 	EVDS_Object_AddRealVariable(planet_earth,"mu",3.9860044e14,0);		//m3 sec-2
 	EVDS_Object_AddRealVariable(planet_earth,"radius",6378.145e3,0);	//m
 	EVDS_Object_AddRealVariable(planet_earth,"period",86164.10,0);		//sec
@@ -88,9 +91,73 @@ void VSFL_EVDS_CreateEmptyState() {
 	EVDS_Object_Create(evds_system,planet_earth,&hangar_building);
 	EVDS_Object_SetName(hangar_building,"Hangar (Baikonur)");
 	EVDS_Object_SetType(hangar_building,"static_body");
-	EVDS_Vector_FromGeographicCoordinates(planet_earth,&vector,45.951,63.497,0);
+
+	//Place hangar in baikonur
+	lat = 0; //45.951
+	lon = 0; //63.497
+	alt = 0;
+	EVDS_Vector_FromGeographicCoordinates(planet_earth,&vector,lat,lon,alt);
 	EVDS_Object_SetPosition(hangar_building,vector.coordinate_system,vector.x,vector.y,vector.z);
+	//Rotate hangar parallel to ground
+	EVDS_Quaternion_FromEuler(&quaternion,planet_earth,0,0,0);
+	EVDS_Quaternion_FromLVLHCoordinates(planet_earth,&quaternion,&quaternion,lat,lon);
+	EVDS_Object_SetOrientationQuaternion(hangar_building,&quaternion);
+	//EVDS_Object_SetOrientation(hangar_building,planet_earth,EVDS_RAD(0),EVDS_RAD(0),EVDS_RAD(90));
 	EVDS_Object_Initialize(hangar_building,1);
+
+	//Test: In baikonur
+	/*{
+		EVDS_Vector_Set(&vector,EVDS_VECTOR_POSITION,hangar_building,1000,0,0);
+		EVDS_Vector_Convert(&vector,&vector,planet_earth);
+		EVDS_Vector_ToGeographicCoordinates(planet_earth,&vector,&lat,&lon,&alt);
+	}
+
+	//Test: 10 km above baikonur
+	{
+		EVDS_Vector_Set(&vector,EVDS_VECTOR_POSITION,hangar_building,0,1000,0);
+		EVDS_Vector_Convert(&vector,&vector,planet_earth);
+		EVDS_Vector_ToGeographicCoordinates(planet_earth,&vector,&lat,&lon,&alt);
+	}
+
+	//Test: 100 km above baikonur
+	{
+		EVDS_Vector_Set(&vector,EVDS_VECTOR_POSITION,hangar_building,0,0,1000);
+		EVDS_Vector_Convert(&vector,&vector,planet_earth);
+		EVDS_Vector_ToGeographicCoordinates(planet_earth,&vector,&lat,&lon,&alt);
+	}
+
+	{
+		EVDS_Quaternion_FromEuler(&quaternion,hangar_building,EVDS_RAD(0),EVDS_RAD(0),EVDS_RAD(0));
+		EVDS_Quaternion_Convert(&quaternion,&quaternion,planet_earth);
+		EVDS_Quaternion_ToEuler(&quaternion,planet_earth,&roll,&pitch,&yaw);
+		roll = EVDS_DEG(roll);
+		pitch = EVDS_DEG(pitch);
+		yaw = EVDS_DEG(yaw);
+	}
+	/*{
+		EVDS_Quaternion_FromEuler(&quaternion,hangar_building,EVDS_RAD(90),EVDS_RAD(0),EVDS_RAD(0));
+		EVDS_Quaternion_Convert(&quaternion,&quaternion,planet_earth);
+		EVDS_Quaternion_ToEuler(&quaternion,planet_earth,&roll,&pitch,&yaw);
+		roll = EVDS_DEG(roll);
+		pitch = EVDS_DEG(pitch);
+		yaw = EVDS_DEG(yaw);
+	}
+	{
+		EVDS_Quaternion_FromEuler(&quaternion,hangar_building,EVDS_RAD(0),EVDS_RAD(90),EVDS_RAD(0));
+		EVDS_Quaternion_Convert(&quaternion,&quaternion,planet_earth);
+		EVDS_Quaternion_ToEuler(&quaternion,planet_earth,&roll,&pitch,&yaw);
+		roll = EVDS_DEG(roll);
+		pitch = EVDS_DEG(pitch);
+		yaw = EVDS_DEG(yaw);
+	}
+	{
+		EVDS_Quaternion_FromEuler(&quaternion,hangar_building,EVDS_RAD(0),EVDS_RAD(0),EVDS_RAD(90));
+		EVDS_Quaternion_Convert(&quaternion,&quaternion,planet_earth);
+		EVDS_Quaternion_ToEuler(&quaternion,planet_earth,&roll,&pitch,&yaw);
+		roll = EVDS_DEG(roll);
+		pitch = EVDS_DEG(pitch);
+		yaw = EVDS_DEG(yaw);
+	}*/
 
 	//Start from current time
 	EVDS_System_SetTime(evds_system,SIMC_Thread_GetMJDTime());
@@ -103,7 +170,7 @@ void VSFL_EVDS_CreateEmptyState() {
 int VSFL_EVDS_Callback_LoadObject(EVDS_OBJECT_LOADEX* info, EVDS_OBJECT* object) {
 	EVDS_Object_Initialize(object,1);
 	EVDS_Object_SetPosition(object,info->userdata,0,0,0);
-	EVDS_Object_SetOrientation(object,info->userdata,0,90,0);
+	EVDS_Object_SetOrientation(object,info->userdata,0,EVDS_RAD(0),0);
 	return EVDS_OK;
 }
 
@@ -210,21 +277,31 @@ void VSFL_EVDS_UpdateVesselClocks(double time_step) {
 				}
 			}
 			{
-				char name[256] = { 0 };
+				EVDS_OBJECT* hangar;
+				EVDS_QUATERNION q_lvlh;
 				EVDS_REAL lat,lon,alt;
 				EVDS_REAL pitch,yaw,roll;
 				EVDS_Vector_ToGeographicCoordinates(planet,&state.position,&lat,&lon,&alt);
-				EVDS_Object_GetName(vessel,name,255);
-				EVDS_Quaternion_GetEuler(&state.orientation,planet,&roll,&pitch,&yaw);
+
+				EVDS_Quaternion_ToLVLHCoordinates(planet,&q_lvlh,&state.orientation,lat,lon);
+				EVDS_Quaternion_ToEuler(&q_lvlh,planet,&roll,&pitch,&yaw);
 				roll = EVDS_DEG(roll);
 				pitch = EVDS_DEG(pitch);
 				yaw = EVDS_DEG(yaw);
 
 				//EVDS_Object_GetStateVector(vessel,&state);
-				//EVDS_Quaternion_SetEuler(&state.orientation,state.orientation.coordinate_system,EVDS_DEG(0),EVDS_DEG(-90),EVDS_DEG(0));
+				//EVDS_System_GetObjectByName(evds_system,"Hangar (Baikonur)",0,&hangar);
+				//EVDS_Object_SetOrientation(vessel,hangar,EVDS_RAD(0),EVDS_RAD(0),EVDS_RAD(90));
 				//EVDS_Object_SetStateVector(vessel,&state);
 
-				printf("%s [%.3f %.3f] %.3f km  %.3f m/s %.0f %.0f %.0f\n",name,lat,lon,alt*1e-3,velocity,roll,pitch,yaw);
+				EVDS_Quaternion_FromEuler(&q_lvlh,planet,EVDS_RAD(0),EVDS_RAD(0),EVDS_RAD(-90));
+				EVDS_Quaternion_FromLVLHCoordinates(planet,&q_lvlh,&q_lvlh,0,0);				
+				EVDS_Object_SetOrientationQuaternion(vessel,&q_lvlh);
+
+				//EVDS_Quaternion_FromEuler(&state.orientation,state.orientation.coordinate_system,EVDS_DEG(0),EVDS_DEG(-90),EVDS_DEG(0));
+
+				//printf("[%.3f %.3f] %.3f km  %.3f m/s %.0f %.0f %.0f\n",lat,lon,alt*1e-3,velocity,roll,pitch,yaw);
+				printf("[%.3f %.3f %.3f] m/s %.0f %.0f %.0f\n",state.velocity.x,state.velocity.y,state.velocity.z,roll,pitch,yaw);
 			}
 
 			entry = SIMC_List_GetNext(list,entry);
@@ -370,7 +447,9 @@ void VSFL_EVDS_Initialize() {
 	save_lock = SIMC_SRW_Create();
 
 	//Restore server state
-	VSFL_MongoDB_RestoreState();
+	//VSFL_MongoDB_RestoreState();
+	VSFL_EVDS_CreateEmptyState();
+	VSFL_EVDS_LoadFile("test.evds");
 
 	//Create simulation thread
 	SIMC_Thread_Create(VSFL_EVDS_SimulationThread,0);
